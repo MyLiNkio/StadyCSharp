@@ -1,0 +1,6 @@
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.exe.config
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.exe
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.pdb
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.csprojResolveAssemblyReference.cache
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.exe
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.pdb
