@@ -79,11 +79,7 @@ namespace Exercise2
                 {
                     Console.Write(subject.getName());
                     Console.Write(": ");
-                    foreach (Teacher teacher in subject.getTeachers())
-                    {
-                        Console.Write(teacher.getName());
-                        Console.Write("\t");
-                    }
+                    Console.Write(subject.getTeachers().Count);
                     Console.Write("\n");
                 }
                 Console.Write("\n");
