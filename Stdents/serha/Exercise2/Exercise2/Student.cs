@@ -23,27 +23,27 @@ namespace Exercise2
             this.phone = phone;
             this.course = course;
         }
-        public string getName()
+        public string GetName()
         {
             return this.name; 
         }
-        public int getYear()
+        public int GetYear()
         {
             return this.year;
         }
-        public string getPhone()
+        public string GetPhone()
         {
             return this.phone;
         }
-        public int getCourse()
+        public int GetCourse()
         {
             return this.course;
         }
-        public List<Subject> getSubjects()
+        public List<Subject> GetSubjects()
         {
             return subjects;
         }
-        public void addSubject(Subject subject)
+        public void AddSubject(Subject subject)
         {
             this.subjects.Add(subject);
         }

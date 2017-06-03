@@ -13,7 +13,7 @@ namespace Exercise2
         public Teacher(string name){
             this.name = name;
         }
-        public string getName()
+        public string GetName()
         {
             return this.name;
         }

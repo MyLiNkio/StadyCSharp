@@ -14,15 +14,15 @@ namespace Exercise2
         {
             this.name = name;
         }
-        public void addTeacher(Teacher teacher)
+        public void AddTeacher(Teacher teacher)
         {
             teachers.Add(teacher);
         }
-        public List<Teacher> getTeachers()
+        public List<Teacher> GetTeachers()
         {
             return this.teachers;
         }
-        public string getName()
+        public string GetName()
         {
             return this.name;
         }

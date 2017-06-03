@@ -41,21 +41,21 @@ namespace Exercise2
             subjects.Add(new Subject("Programming Course3"));
             subjects.Add(new Subject("Programming Course4"));
 
-            subjects[0].addTeacher(teachers[3]);
-            subjects[0].addTeacher(teachers[0]);
+            subjects[0].AddTeacher(teachers[3]);
+            subjects[0].AddTeacher(teachers[0]);
             
-            subjects[1].addTeacher(teachers[2]);
-            subjects[2].addTeacher(teachers[1]);
-            subjects[3].addTeacher(teachers[3]);
+            subjects[1].AddTeacher(teachers[2]);
+            subjects[2].AddTeacher(teachers[1]);
+            subjects[3].AddTeacher(teachers[3]);
 
-            students[0].addSubject(subjects[0]);
-            students[0].addSubject(subjects[2]);
-            students[0].addSubject(subjects[3]);
+            students[0].AddSubject(subjects[0]);
+            students[0].AddSubject(subjects[2]);
+            students[0].AddSubject(subjects[3]);
 
-            students[1].addSubject(subjects[1]);
-            students[1].addSubject(subjects[2]);
+            students[1].AddSubject(subjects[1]);
+            students[1].AddSubject(subjects[2]);
             
-            students[2].addSubject(subjects[1]);
+            students[2].AddSubject(subjects[1]);
 
 
             Info(students);
@@ -65,21 +65,20 @@ namespace Exercise2
         static void Info(List<Student> students)
         {
             foreach(Student student in students){
-                Console.Write("Name: ");
-                Console.WriteLine(student.getName());
-                Console.Write("Course: ");
-                Console.WriteLine(student.getCourse());
-                Console.Write("Phone: ");
-                Console.WriteLine(student.getPhone());
-                List<Subject> subjects = student.getSubjects();
-                Console.Write("Count of subjects: ");
-                Console.WriteLine(student.getSubjects().Count);
+                Console.Write("Имя: ");
+                Console.WriteLine(student.GetName());
+                Console.Write("Курс: ");
+                Console.WriteLine(student.GetCourse());
+                Console.Write("телефон: ");
+                Console.WriteLine(student.GetPhone());
+                List<Subject> subjects = student.GetSubjects();
+                Console.Write("Количество предметов: ");
+                Console.WriteLine(student.GetSubjects().Count);
                 Console.Write("Предметы:\n");
-                foreach (Subject subject in student.getSubjects())
-                {
-                    Console.Write(subject.getName());
+                foreach (Subject subject in student.GetSubjects()){
+                    Console.Write(subject.GetName());
                     Console.Write(": ");
-                    Console.Write(subject.getTeachers().Count);
+                    Console.Write(subject.GetTeachers().Count);
                     Console.Write("\n");
                 }
                 Console.Write("\n");
