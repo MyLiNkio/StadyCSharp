@@ -1,0 +1,6 @@
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\bin\Debug\Exercise1.exe.config
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\bin\Debug\Exercise1.exe
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\bin\Debug\Exercise1.pdb
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\obj\Debug\Exercise1.csprojResolveAssemblyReference.cache
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\obj\Debug\Exercise1.exe
+D:\RTF\VS C#\Stdents\arudik\Exercise1\Exercise1\obj\Debug\Exercise1.pdb

@@ -1,0 +1,6 @@
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.exe.config
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.exe
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\bin\Debug\DZ1_Diana.pdb
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.csprojResolveAssemblyReference.cache
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.exe
+D:\RTF\VS C#\Stdents\Diana\DZ1_Diana\DZ1_Diana\obj\Debug\DZ1_Diana.pdb
