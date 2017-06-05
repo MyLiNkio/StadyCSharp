@@ -73,7 +73,7 @@ namespace Schedule.discipline
 
         public string GetTeacher()
         {
-            return teacher.GetFirstName() + " " + teacher.GetSurname() + " " + teacher.GetLastName();
+            return teacher.GetFirstName() + " " + teacher.GetLastName() + " " + teacher.GetSurname();
         }
 
         public void RewriteTeacher(Teacher newTeacher)

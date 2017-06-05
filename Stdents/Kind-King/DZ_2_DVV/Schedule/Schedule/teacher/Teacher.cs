@@ -21,17 +21,16 @@ namespace Schedule.teacher
         private List<MobileNumber> mobileNumbers = new List<MobileNumber>();
         private Curs curs;
         private List<Discipline> disciplines = new List<Discipline>();
-        // private List<Student> students = new List<Student>(); Студенти не у викладача а у дисципліни!
+        //private List<Student> students = new List<Student>(); Студенти не у викладача а у дисципліни!
 
         public void SetCurs(Curs curs)
         {
             if (curs >= Curs.postgraduate)
                 this.curs = curs;
             else Console.WriteLine("Error!");
-            this.curs = curs;
         }
 
-        public Teacher(string firstName, string surname, string lastName, Date birthday, MobileNumber mobileNumber, Curs curs) : this(firstName, lastName, surname, birthday, mobileNumber)
+        public Teacher(string firstName, string lastName, string surname, Date birthday, MobileNumber mobileNumber, Curs curs) : this(firstName, lastName, surname, birthday, mobileNumber)
         {
             SetCurs(curs);
         }

@@ -36,20 +36,22 @@ namespace Schedule
             // Массивы в языке C# являются настоящими динамическими массивами.
             Console.WriteLine("Початок");
 
+            // У мене вийшло так зробити що клас викладач по свої суті Клас студент та викладач однакові... Тому гадаю що в майбутній версії ъх краще об'єднати 
+
             List<Student> group_RS_41 = new List<Student>();
             List<Teacher> teachers = new List<Teacher>();
             List<Discipline> discipline = new List<Discipline>();
 
             Console.WriteLine("Перепис студентiв пiсля сесiї");
-            group_RS_41.Add(new Student("Вова", "Думанський", "Валерiйович", new Date(27, 07, 1996), new MobileNumber(380, 067, 7519415), Curs.third)); // Вiйни клонiв
+            group_RS_41.Add(new Student("Вова", "Валерiйович", "Думанський", new Date(27, 07, 1996), new MobileNumber(380, 067, 7519415), Curs.third)); // Вiйни клонiв
             // group_RS_41[0].AddMobile(new MobileNumber(380, 067, 7519415)); // i тут до мене дiйшло що краще перший номер помiстити при створенi обєкту...
             group_RS_41[0].AddMobile(new MobileNumber(380, 066, 5986502));
-            group_RS_41.Add(new Student("Вовчик", "Думанський", "Валерiйович", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
+            group_RS_41.Add(new Student("Вовчик", "Валерiйович", "Думанський", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
             group_RS_41[1].AddMobile(new MobileNumber(380, 067, 7519415));
-            group_RS_41.Add(new Student("Вован", "Думанський", "Валерiйович", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
+            group_RS_41.Add(new Student("Вован", "Валерiйович", "Думанський", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
             group_RS_41[2].AddMobile(new MobileNumber(380, 066, 5986502));
-            group_RS_41.Add(new Student("Вовк", "Думанський", "Валерiйович", new Date(27, 07, 1996), new MobileNumber(), Curs.third)); // А цi двоє без мобiлок :)
-            group_RS_41.Add(new Student("Володимир", "Думанський", "Валерiйович", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
+            group_RS_41.Add(new Student("Вовк", "Валерiйович", "Думанський", new Date(27, 07, 1996), new MobileNumber(), Curs.third)); // А цi двоє без мобiлок :)
+            group_RS_41.Add(new Student("Володимир", "Валерiйович", "Думанський", new Date(27, 07, 1996), new MobileNumber(), Curs.third));
 
             Console.WriteLine("КПI наймає викладачiв");
             teachers.Add(new Teacher("Микола", "Iгорович", "Ястребов", new Date(32, 11, 1941), new MobileNumber(), Curs.lecturer));
@@ -157,7 +159,7 @@ namespace Schedule
         {
             for (int i = 0; i < group.Count; i++)
             {
-                Console.WriteLine("Студент: {1} {0} {2}", group[i].GetFirstName(), group[i].GetLastName(), group[i].GetSurname());
+                Console.WriteLine("Студент: {0} {1} {2}", group[i].GetFirstName(), group[i].GetLastName(), group[i].GetSurname());
                 Console.WriteLine("Рiк народження: {0}", group[i].GetBirthday(Format.type_6));
                 Console.Write("Номер телефона: ");
                 for (int k = 0; k < group[i].GetNumberMobileNumbers(); k++)
