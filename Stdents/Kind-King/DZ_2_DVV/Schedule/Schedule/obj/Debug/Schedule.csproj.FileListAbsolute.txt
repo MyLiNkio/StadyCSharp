@@ -1,0 +1,6 @@
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\bin\Debug\Schedule.exe.config
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\obj\Debug\Schedule.csprojResolveAssemblyReference.cache
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\bin\Debug\Schedule.exe
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\bin\Debug\Schedule.pdb
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\obj\Debug\Schedule.exe
+D:\RTF\VS C#\Stdents\Kind-King\DZ_2_DVV\Schedule\Schedule\obj\Debug\Schedule.pdb
