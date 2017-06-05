@@ -1,6 +1,0 @@
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\bin\Debug\DZ2_Diana.exe.config
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\bin\Debug\DZ2_Diana.exe
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\bin\Debug\DZ2_Diana.pdb
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\obj\Debug\DZ2_Diana.csprojResolveAssemblyReference.cache
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\obj\Debug\DZ2_Diana.exe
-E:\Program\StadyCSharp\Stdents\Diana\DZ2_Diana\DZ2_Diana\obj\Debug\DZ2_Diana.pdb
