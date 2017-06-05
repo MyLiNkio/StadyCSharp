@@ -67,7 +67,7 @@ namespace Schedule.student
             return disciplines.Count();
         }
 
-        public void RewriteMobile(Discipline newDiscipline, Discipline oldDiscipline)
+        public void RewriteDiscipline(Discipline newDiscipline, Discipline oldDiscipline)
         {
             if (disciplines.Contains(oldDiscipline))
             {
@@ -117,12 +117,16 @@ namespace Schedule.student
 
         public string GetMobileNumber(int i)
         {
-            if (mobileNumbers[i] != null && mobileNumbers.Count() > i )
+            if (mobileNumbers.Count() > i && mobileNumbers[i] != null)
                 return mobileNumbers[i].GetMobileNumber();
             else
-                return GetMobileNumber(i - 1);
+                return "";
         }
 
+        public int GetNumberMobileNumbers()
+        {
+            return mobileNumbers.Count();
+        }
 
         public void RewriteMobile(MobileNumber newMobileNumber, MobileNumber oldMobileNumber)
         {

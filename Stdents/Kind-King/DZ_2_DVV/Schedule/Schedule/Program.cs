@@ -159,7 +159,10 @@ namespace Schedule
             {
                 Console.WriteLine("Студент: {1} {0} {2}", group[i].GetFirstName(), group[i].GetLastName(), group[i].GetSurname());
                 Console.WriteLine("Рiк народження: {0}", group[i].GetBirthday(Format.type_6));
-                Console.WriteLine("Номер телефона: {0}", group[i].GetMobileNumber(0));
+                Console.Write("Номер телефона: ");
+                for (int k = 0; k < group[i].GetNumberMobileNumbers(); k++)
+                    Console.Write("{0}\n                ", group[i].GetMobileNumber(k));
+                Console.WriteLine();
                 Console.WriteLine("Курс: {0}", group[i].GetCurse());
                 Console.WriteLine("Вивчає такi дисциплiни: ");
                 for (int j = 0; j < group[i].GetNumberDiscipline(); j++)
