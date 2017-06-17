@@ -1,0 +1,6 @@
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\bin\Debug\Graph.exe.config
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\bin\Debug\Graph.exe
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\bin\Debug\Graph.pdb
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\obj\Debug\Graph.exe
+D:\RTF\VS C#\Stdents\Kind-King\DZ_1_DVV\Graph\Graph\obj\Debug\Graph.pdb
