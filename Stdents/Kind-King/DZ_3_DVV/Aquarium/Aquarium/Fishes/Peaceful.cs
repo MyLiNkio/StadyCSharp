@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aquarium.Fish.Species
+namespace Aquarium.Fishes
 {
     class Peaceful : Fish
     {
@@ -12,8 +12,7 @@ namespace Aquarium.Fish.Species
         {
             velocity = 1.5;
             reaction = 5;
-            type = FishType.Peaceful;
-            food = null;
+            //food = null;
         }
     }
 }

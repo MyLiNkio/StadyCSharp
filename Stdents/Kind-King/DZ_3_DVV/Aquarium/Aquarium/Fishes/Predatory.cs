@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aquarium.Fish.Species
+namespace Aquarium.Fishes
 {
     public class Predatory : Fish //public Fish // так в С++ наслідувальні класи , інета немає подивитися не можу як в C#
     {
@@ -16,8 +16,7 @@ namespace Aquarium.Fish.Species
         {
             velocity = 2;
             reaction = 3;
-            type = FishType.Predatory;
-            food = new[] { FishType.Peaceful, FishType.Predatory };
+            //food = new[] { FishType.Peaceful, FishType.Predatory };
         }
     }
 }

@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aquarium\Aquarium.cs" />
-    <Compile Include="Fish\Fish.cs" />
-    <Compile Include="Fish\Species\Peaceful.cs" />
-    <Compile Include="Fish\Species\Predatory.cs" />
+    <Compile Include="Aquarium.cs" />
+    <Compile Include="Fishes\Fish.cs" />
+    <Compile Include="Fishes\Peaceful.cs" />
+    <Compile Include="Fishes\Predatory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tool\Coordinates.cs" />

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aquarium.Tool;
-using Aquarium.Aquarium;
+using Aquarium;
 
-namespace Aquarium.Fish
+namespace Aquarium.Fishes
 {
     public class Fish
     {
@@ -15,9 +15,7 @@ namespace Aquarium.Fish
         protected double reaction; // відстань на якій риби бачать один одного....
         protected Projection view;
         protected Coordinates coordinates;
-        protected FishType type;
         //protected List<FishType> food; // 
-        protected FishType[] food; // 
 
         protected Fish(/*Aquarium size,*/ Projection view)
         {
@@ -26,7 +24,7 @@ namespace Aquarium.Fish
             coordinates.y = 0;
             coordinates.z = 0;
             GetPurpuse();
-        }    
+        }
 
         private void GetPurpuse()
         {
@@ -103,10 +101,5 @@ namespace Aquarium.Fish
             return lower;
         }
     }
-
-    public enum FishType // мені не подабається моя реалізація
-    {
-        Peaceful,
-        Predatory,
-    }
+    
 }
