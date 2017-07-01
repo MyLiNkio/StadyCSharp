@@ -16,13 +16,15 @@ namespace Aquarium
             int length = 50;
             int width = 10;
             int heigth = 20;
-
-            Predatory a = new Predatory(new Projection('f', 'r', 'l', 'R', 'u','L'));
-            Peaceful b = new Peaceful(new Projection('f', 'r', 'l', 'R', 'u', 'L'));
-
-
+            List<Fish> fishes = new List<Fish>();
 
             Aquarium aquarium = new Aquarium(length, width, heigth);
+
+            fishes.Add(new Predatory(aquarium));
+            fishes.Add(new Peaceful(aquarium));
+
+            aquarium.AddFishes(fishes);
+
             aquarium.DrawAquarium();
             Console.ReadLine();
         }

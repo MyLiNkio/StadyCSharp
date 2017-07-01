@@ -4,29 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aquarium.Fishes;
+using System.Threading;
 
 namespace Aquarium
 {
     public class Aquarium
     {
-        private int length;
-        private int width;
-        private int heigth;
-        private int water;
-        private List<Fish> fishes = new List<Fish>();
+        public int Length { get; }
+        public int Width { get; }
+        public int Heigth { get; }
+        public int Water { get; set; }
+        private List<Fish> fishes; //  = new List<Fish>()
+        private Projection view;
 
-        public Aquarium(int length, int width, int heigth, Fish fish)
+        public Aquarium(int length, int width, int heigth)
         {
-            this.length = length;
-            this.width = width;
-            this.heigth = heigth;
-            water = heigth;
-            fishes.Add(fish);
+            this.Length = length;
+            this.Width = width;
+            this.Heigth = heigth;
+            Water = heigth;
+            //fishes.Add(fish);
+            //fish.GetType();
         }
 
-        public void Render()
+        public void AddFishes(List<Fish> fishes)
         {
-            fishes[0].
+            this.fishes = fishes;
+        }
+
+        public void Render(int delay)
+        {
+            fishes[0].Step();
+            view = fishes[0].View;
+            fishes[1].Step();
+
+
+            Thread.Sleep(delay);
         }
 
         public void DrawAquarium()
@@ -34,14 +47,14 @@ namespace Aquarium
             Console.SetCursorPosition(0, 0); /// 1
             DrawEdgeHor();
             DrawAquariumSideTop(); /// 1
-            Console.SetCursorPosition(width + 1, width + 1); /// 1
+            Console.SetCursorPosition(Width + 1, Width + 1); /// 1
             DrawEdgeHor();
 
             DrawAquariumSideFront(); /// 1
 
             DrawAquariumSideCyma();
             DrawEdgeSloping();
-            Console.SetCursorPosition(width + 1, heigth + width + 2);
+            Console.SetCursorPosition(Width + 1, Heigth + Width + 2);
             DrawEdgeHor();
 
             //Console.SetCursorPosition(0, 0); /// 1
@@ -54,13 +67,13 @@ namespace Aquarium
 
         private void DrawAquariumSideTop()
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < Width; j++)
             {
                 Console.SetCursorPosition(j + 1, j + 1); /// 1
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("\\");
-                for (int i = 0; i < length; i++)
+                for (int i = 0; i < Length; i++)
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
                     //Console.ForegroundColor = ConsoleColor.White;
@@ -75,13 +88,13 @@ namespace Aquarium
 
         private void DrawAquariumSideFront()
         {
-            for (int j = 0; j < heigth; j++)
+            for (int j = 0; j < Heigth; j++)
             {
-                Console.SetCursorPosition(width + 1, j + width + 2); /// 1
+                Console.SetCursorPosition(Width + 1, j + Width + 2); /// 1
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("|");
-                for (int i = 0; i < length; i++)
+                for (int i = 0; i < Length; i++)
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
                     //Console.ForegroundColor = ConsoleColor.White;
@@ -96,13 +109,13 @@ namespace Aquarium
 
         private void DrawAquariumSideCyma()
         {
-            for (int j = 0; j < heigth; j++)
+            for (int j = 0; j < Heigth; j++)
             {
                 Console.SetCursorPosition(0, j + 1); /// 1
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("|");
-                for (int i = 0; i < width; i++)
+                for (int i = 0; i < Width; i++)
                 {
                     Console.SetCursorPosition(i + 1, j + i + 2);
                     Console.BackgroundColor = ConsoleColor.Blue;
@@ -118,13 +131,13 @@ namespace Aquarium
 
         private void DrawEdgeSloping()
         {
-            Console.SetCursorPosition(0, heigth + 1);
+            Console.SetCursorPosition(0, Heigth + 1);
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("*");
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < Width; i++)
             {
-                Console.SetCursorPosition(i + 1, heigth + i + 2);
+                Console.SetCursorPosition(i + 1, Heigth + i + 2);
                 Console.Write("\\");
             }
         }
@@ -134,7 +147,7 @@ namespace Aquarium
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("*");
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 Console.Write("─");
             }
@@ -146,31 +159,11 @@ namespace Aquarium
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("*");
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 Console.WriteLine("|");
             }
             Console.WriteLine("*");
-        }
-
-        public int GetLength()
-        {
-            return length;
-        }
-
-        public int GetWidth()
-        {
-            return width;
-        }
-
-        public int GetHeigth()
-        {
-            return heigth;
-        }
-
-        public int GetWater()
-        {
-            return water;
         }
     }
 }

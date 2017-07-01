@@ -8,11 +8,14 @@ namespace Aquarium.Fishes
 {
     class Peaceful : Fish
     {
-        public Peaceful(Projection view) : base(view)
+        public Peaceful(Aquarium aqua) : base(aqua)
         {
+            //this.aqua = aqua;
+            View = new Projection('f', 'r', 'l', 'R', 'u', 'L');
             velocity = 1.5;
-            reaction = 5;
+            Reaction = 5;
             //food = null;
+
         }
     }
 }

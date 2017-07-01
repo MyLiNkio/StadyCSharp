@@ -55,7 +55,6 @@ namespace Schedule
 
             Console.WriteLine("КПI наймає викладачiв");
             teachers.Add(new Teacher("Микола", "Iгорович", "Ястребов", new Date(32, 11, 1941), new MobileNumber(), Curs.lecturer));
-            //AddDiscipline(new Discipline());
             teachers.Add(new Teacher("Сергiй", "Борисович", "Могильний", new Date(32, 12, 1941), new MobileNumber(), Curs.lecturer));
             teachers.Add(new Teacher("Вiталi", "Сергiйович", "Мосiйсук", new Date(32, 10, 1985), new MobileNumber(), Curs.lecturer));
             teachers.Add(new Teacher("Олександр", "Михайлович", "Купрiй", new Date(32, 5, 1941), new MobileNumber(), Curs.practices));
@@ -159,7 +158,7 @@ namespace Schedule
         {
             for (int i = 0; i < group.Count; i++)
             {
-                Console.WriteLine("Студент: {0} {1} {2}", group[i].GetFirstName(), group[i].GetLastName(), group[i].GetSurname());
+                Console.WriteLine("Студент: {2} {0} {1}", group[i].GetFirstName(), group[i].GetLastName(), group[i].GetSurname());
                 Console.WriteLine("Рiк народження: {0}", group[i].GetBirthday(Format.type_6));
                 Console.Write("Номер телефона: ");
                 for (int k = 0; k < group[i].GetNumberMobileNumbers(); k++)

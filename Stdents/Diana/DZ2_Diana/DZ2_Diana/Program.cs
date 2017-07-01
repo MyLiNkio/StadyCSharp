@@ -11,6 +11,7 @@ namespace DZ2_Diana
     {
         static void Main(string[] args)
         {
+            Console.BufferWidth = 100;
             Console.WriteLine("*****Best students of RTF *****\n");
 
             string[] dyhovychnyi = new string[] { "Lineyka", "Difur", "Matan" };

@@ -9,8 +9,8 @@ namespace Task_2_School
     {
         static void Main(string[] args)
         {
-			Console.WindowWidth = 200;
-			Console.WindowHeight = 200;
+			Console.WindowWidth = 100;
+			Console.WindowHeight = 70;
 
 			Console.ReadKey();
 

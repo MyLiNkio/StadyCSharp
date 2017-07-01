@@ -9,8 +9,8 @@ namespace Aquarium.Tool
     public class Coordinates
     {
         // struct
-        public double X { set; get; }
-        public double Y { get; set; }
-        public double Z { get; set; }
+        public double x;
+        public double y;
+        public double z;
     }
 }

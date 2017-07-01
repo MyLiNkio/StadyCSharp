@@ -79,38 +79,6 @@ namespace Schedule.auxiliary_tools
             this.couple = couple;
         }
 
-        public string Month(int month)
-        {
-            switch (month)
-            {
-                case 1:
-                    return "Сiченя";
-                case 2:
-                    return "Лютого";
-                case 3:
-                    return "Березеня";
-                case 4:
-                    return "Квiтеня";
-                case 5:
-                    return "Травеня";
-                case 6:
-                    return "Червеня";
-                case 7:
-                    return "Липеня";
-                case 8:
-                    return "Серпеня";
-                case 9:
-                    return "Вересеня";
-                case 10:
-                    return "Жовтеня";
-                case 11:
-                    return "Листопада";
-                case 12:
-                    return "Груденя";
-                default: return "Error";
-            }
-        }
-
         public void PrintTimetable(Timetable timetable)
         {
             Console.Write("Day of week: {0}, ", GetDaysOfWeek());

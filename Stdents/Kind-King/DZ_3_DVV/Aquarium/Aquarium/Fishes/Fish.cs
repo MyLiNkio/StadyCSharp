@@ -11,95 +11,128 @@ namespace Aquarium.Fishes
     public class Fish
     {
         protected double velocity;
-        protected Coordinates purpuse;
-        protected double reaction; // відстань на якій риби бачать один одного....
-        protected Projection view;
-        protected Coordinates coordinates;
+        protected Coordinates purpuse = new Coordinates();
+        public double Reaction { get; protected set; } // відстань на якій риби бачать один одного....
+        public Projection View { get; protected set; }
+        //private Coordinates coordinates = new Coordinates();
+        public Coordinates Coordinates { get; private set; }
+           // = new Coordinates();
         //protected List<FishType> food; // 
+        Random rand = new Random();
+        protected Aquarium aqua;
+        Coordinates vector = new Coordinates(); // private
+        double module;
 
-        protected Fish(/*Aquarium size,*/ Projection view)
+        protected Fish(Aquarium aqua)
         {
-            this.view = view;
-            coordinates.x = 0; // Random.Next(size.GetLength());
-            coordinates.y = 0;
-            coordinates.z = 0;
+            this.aqua = aqua;
+            //this.view = view;
+            Coordinates = new Coordinates();
+            Coordinates.X = rand.Next(aqua.Width); // можуть впасти комусь на голову
+            Coordinates.Y = rand.Next(aqua.Length);
+            Coordinates.Z = rand.Next(aqua.Heigth);
             GetPurpuse();
+        }
+        ~Fish() // Деструктор
+        {
+            // Відмалювати кроваве п'ятно на місці смерті
         }
 
         private void GetPurpuse()
         {
-            purpuse.x = 5; // Random.Next(size.GetLength());
-            purpuse.y = 5;
-            purpuse.z = 5;
+            purpuse.X = rand.Next(aqua.Width);
+            purpuse.Y = rand.Next(aqua.Length);
+            purpuse.Z = rand.Next(aqua.Heigth);
+            
+            vector.X = purpuse.X - Coordinates.X;
+            vector.Y = purpuse.Y - Coordinates.Y;
+            vector.Z = purpuse.Z - Coordinates.Z;
+
+            module = Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y + vector.Z * vector.Z);
+            vector.X /= module; // одиничний вектор
+            vector.Y /= module;
+            vector.Z /= module;
+
+            View.TurnFish(vector); // Повернути рибку в напрямку руху
+
         }
 
         public void Step()
         {
-            if (IfPurpuse())
+            if (module > velocity)
             {
-                GetPurpuse();
+                Coordinates.X += vector.X * velocity;
+                Coordinates.Y += vector.Y * velocity;
+                Coordinates.Z += vector.Z * velocity;
+                module -= velocity;
             }
-            // Я вже кидаю як небудь код...
-            coordinates.x += velocity;
-            coordinates.y += velocity;
-            coordinates.z += velocity;
-
+            else
+            {
+                //Coordinates = purpuse; Проконало б якщо це була структура
+                Coordinates.X = purpuse.X;
+                Coordinates.Y = purpuse.Y;
+                Coordinates.Z = purpuse.Z;
+                GetPurpuse(); // рибка допливла до місця призначення
+            }
         }
 
-        private bool IfPurpuse()
-        {
-            return purpuse.x == coordinates.x && purpuse.y == coordinates.y && purpuse.z == coordinates.z;
-        }
     }
 
     public class Projection
     {
-        private char front;
-        private char rear;
-        private char left;
-        private char right;
-        private char upper;
-        private char lower;
+        public char One { get; private set; }
+        public char Two { get; private set; }
+        public char Three { get; private set; } // Upper, Lower
+        public static char Front { get; private set; }
+        public static char Rear { get; private set; }
+        public static char Left { get; private set; }
+        public static char Right { get; private set; }
+        public static char Upper { get; private set; }
+        public static char Lower { get; private set; }
 
         public Projection(char front, char rear, char left, char right, char upper, char lower)
         {
-            this.front = front;
-            this.rear = rear;
-            this.left = left;
-            this.right = right;
-            this.upper = upper;
-            this.lower = lower;
+            Projection.Front = front;
+            Projection.Rear = rear;
+            Projection.Left = left;
+            Right = right;
+            Upper = upper;
+            Lower = lower;
         }
 
-        public char GetFront()
+        public void TurnFish(/* Setting view,*/ Coordinates SingleVector)
         {
-            return front;
+            Three = Upper;
+
+            if (SingleVector.X > SingleVector.Y) // Рух впродовж акваріуму
+            {
+                if (SingleVector.X > 0) // Рух вправо
+                {
+                    One = Right;
+                    Two = Rear;
+                }
+                else // Рух вліво
+                {
+                    One = Left;
+                    Two = Front;
+                }
+            }
+            else // Рух поперек акваріуму
+            {
+                if (SingleVector.Y > 0) // Рух вперед
+                {
+                    One = Front;
+                    Two = Right;
+                }
+                else // Рух назад
+                {
+                    One = Rear;
+                    Two = Left;
+                }
+            }
+            One = Front;
+            Two = Front;
         }
 
-        public char GetRear()
-        {
-            return rear;
-        }
-
-        public char GetLeft()
-        {
-            return left;
-        }
-
-        public char GetRight()
-        {
-            return right;
-        }
-
-        public char GetUpper()
-        {
-            return upper;
-        }
-
-        public char GetLower()
-        {
-            return lower;
-        }
     }
-    
 }
