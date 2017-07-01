@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aquarium.Fishes;
-using System.Threading;
+
 
 namespace Aquarium
 {
@@ -15,7 +15,7 @@ namespace Aquarium
         public int Heigth { get; }
         public int Water { get; set; }
         private List<Fish> fishes; //  = new List<Fish>()
-        private Projection view;
+        //private Projection view;
 
         public Aquarium(int length, int width, int heigth)
         {
@@ -32,15 +32,104 @@ namespace Aquarium
             this.fishes = fishes;
         }
 
-        public void Render(int delay)
+        public void Sort()
         {
-            fishes[0].Step();
-            view = fishes[0].View;
-            fishes[1].Step();
-
-
-            Thread.Sleep(delay);
+            for (var i = 0; i < fishes.Count - 1; i++)
+            {
+                var fish = fishes[i];
+                if (fish.CompareTo(fishes[i + 1]) > 0)
+                {
+                    fishes.Remove(fish);
+                    fishes.Insert(i + 1, fish);
+                }
+            }
         }
+
+        public int CompareX(Fish f1, Fish f2)
+        {
+            if (f1.Coordinates.X < f2.Coordinates.X)
+                return -1;
+            if (f1.Coordinates.X == f2.Coordinates.X)
+                return 0;
+            return 1;
+        }
+
+        public int CompareY(Fish f1, Fish f2)
+        {
+            if (f1.Coordinates.Y < f2.Coordinates.Y)
+                return -1;
+            if (f1.Coordinates.Y == f2.Coordinates.Y)
+                return 0;
+            return 1;
+        }
+
+        public int CompareZ(Fish f1, Fish f2)
+        {
+            if (f1.Coordinates.Z < f2.Coordinates.Z)
+                return -1;
+            if (f1.Coordinates.Z == f2.Coordinates.Z)
+                return 0;
+            return 1;
+        }
+
+        public void Render()
+        {
+            fishes.Sort(new Comparison<Fish>(CompareX));
+            fishes.Sort(new Comparison<Fish>(CompareY));
+            fishes.Sort(new Comparison<Fish>(CompareZ));
+
+            foreach (var fish in fishes) {
+
+                Console.SetCursorPosition((int)Math.Round(fish.Coordinates.Y) + (int)Math.Round(fish.Coordinates.X) + 2, (int)Math.Round(fish.Coordinates.X) + 1);
+                Console.Write(' ');
+
+                Console.SetCursorPosition(Width + (int)Math.Round(fish.Coordinates.Y) + 2, (int)Math.Round(fish.Coordinates.Z) + Width + 2);
+                Console.Write(' ');
+
+                Console.SetCursorPosition((int)Math.Round(fish.Coordinates.X) + 1, (int)Math.Round(fish.Coordinates.Z) + (int)Math.Round(fish.Coordinates.X) + 2);
+                Console.Write(' ');
+                fish.Step(fishes);
+                //Console.SetCursorPosition((int)Math.Round(fish.Coordinates.Y) + (int)Math.Round(fish.Coordinates.X) + 2, (int)Math.Round(fish.Coordinates.X) + 1);
+                //Console.Write(fish.View.Three);
+
+                //Console.SetCursorPosition(Width + (int)Math.Round(fish.Coordinates.Y) + 2, (int)Math.Round(fish.Coordinates.Z) + Width + 2);
+                //Console.Write(fish.View.Two);
+
+                //Console.SetCursorPosition((int)Math.Round(fish.Coordinates.X) + 1, (int)Math.Round(fish.Coordinates.Z) + (int)Math.Round(fish.Coordinates.X) + 2);
+                //Console.Write(fish.View.One);
+            }
+            Console.BackgroundColor = ConsoleColor.Blue;
+            fishes.Sort(new Comparison<Fish>(CompareX));
+            foreach (var fish in fishes)
+            {
+                TypeFish(fish);
+                Console.SetCursorPosition((int)Math.Round(fish.Coordinates.Y) + (int)Math.Round(fish.Coordinates.X) + 2, (int)Math.Round(fish.Coordinates.X) + 1);
+                Console.Write(fish.View.Three);
+            }
+            fishes.Sort(new Comparison<Fish>(CompareY));
+            foreach (var fish in fishes)
+            {
+                TypeFish(fish);
+                Console.SetCursorPosition(Width + (int)Math.Round(fish.Coordinates.Y) + 2, (int)Math.Round(fish.Coordinates.Z) + Width + 2);
+                Console.Write(fish.View.Two);
+            }
+            fishes.Sort(new Comparison<Fish>(CompareZ));
+            foreach (var fish in fishes)
+            {
+                TypeFish(fish);
+                Console.SetCursorPosition((int)Math.Round(fish.Coordinates.X) + 1, (int)Math.Round(fish.Coordinates.Z) + (int)Math.Round(fish.Coordinates.X) + 2);
+                Console.Write(fish.View.One);
+            }
+        }
+
+        private void TypeFish(Fish fish)
+        {
+            if (fish is Peaceful)
+                Console.ForegroundColor = ConsoleColor.White;
+            else
+                Console.ForegroundColor = ConsoleColor.Red;
+        }
+        
 
         public void DrawAquarium()
         {

@@ -8,7 +8,7 @@ using Aquarium;
 
 namespace Aquarium.Fishes
 {
-    public class Fish
+    public class Fish: IComparable
     {
         protected double velocity;
         protected Coordinates purpuse = new Coordinates();
@@ -18,15 +18,15 @@ namespace Aquarium.Fishes
         public Coordinates Coordinates { get; private set; }
            // = new Coordinates();
         //protected List<FishType> food; // 
-        Random rand = new Random();
+        static Random rand = new Random();
         protected Aquarium aqua;
         Coordinates vector = new Coordinates(); // private
-        double module;
+        protected double module;
 
         protected Fish(Aquarium aqua)
         {
             this.aqua = aqua;
-            //this.view = view;
+            View = new Projection('@', 'O', '{', '}', 'u', 'L');
             Coordinates = new Coordinates();
             Coordinates.X = rand.Next(aqua.Width); // можуть впасти комусь на голову
             Coordinates.Y = rand.Next(aqua.Length);
@@ -38,7 +38,7 @@ namespace Aquarium.Fishes
             // Відмалювати кроваве п'ятно на місці смерті
         }
 
-        private void GetPurpuse()
+        protected void GetPurpuse()
         {
             purpuse.X = rand.Next(aqua.Width);
             purpuse.Y = rand.Next(aqua.Length);
@@ -57,8 +57,13 @@ namespace Aquarium.Fishes
 
         }
 
-        public void Step()
+        protected virtual void DoIt(List<Fish> fishes)
         {
+        }
+
+        public void Step(List<Fish> fishes)
+        {
+            DoIt(fishes);
             if (module > velocity)
             {
                 Coordinates.X += vector.X * velocity;
@@ -74,6 +79,17 @@ namespace Aquarium.Fishes
                 Coordinates.Z = purpuse.Z;
                 GetPurpuse(); // рибка допливла до місця призначення
             }
+            
+        }
+
+        public int CompareTo(object f)
+        {
+            var fish = (Fish)f;
+            if (this.Coordinates.X < fish.Coordinates.X)
+                return -1;
+            if (this.Coordinates.X == fish.Coordinates.X)
+                return 0;
+            return 1;
         }
 
     }
@@ -130,8 +146,8 @@ namespace Aquarium.Fishes
                     Two = Left;
                 }
             }
-            One = Front;
-            Two = Front;
+            //One = Front;
+            //Two = Front;
         }
 
     }
